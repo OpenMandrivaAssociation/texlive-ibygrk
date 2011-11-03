@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /fonts/greek/ibygrk
+# catalog-date 2007-07-29 11:26:52 +0200
+# catalog-license gpl
+# catalog-version 4.5
 Name:		texlive-ibygrk
 Version:	4.5
 Release:	1
@@ -103,6 +109,7 @@ with Babel, see the ibycus-babel package.
 %doc %{_texmfdistdir}/doc/fonts/ibygrk/ibycus4.ltx
 %doc %{_texmfdistdir}/doc/fonts/ibygrk/psibycus.ltx
 %doc %{_texmfdistdir}/doc/fonts/ibygrk/psibycus.tex
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -113,3 +120,5 @@ with Babel, see the ibycus-babel package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
