@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Ibycus is a Greek typeface, based on Silvio Levy's realisation
@@ -28,20 +26,12 @@ format. This distribution of ibycus is accompanied by a set of
 macro packages to use it with Plain TeX or LaTeX, but for use
 with Babel, see the ibycus-babel package.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -110,7 +100,6 @@ with Babel, see the ibycus-babel package.
 %doc %{_texmfdistdir}/doc/fonts/ibygrk/ibycus4.ltx
 %doc %{_texmfdistdir}/doc/fonts/ibygrk/psibycus.ltx
 %doc %{_texmfdistdir}/doc/fonts/ibygrk/psibycus.tex
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -121,5 +110,3 @@ with Babel, see the ibycus-babel package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
