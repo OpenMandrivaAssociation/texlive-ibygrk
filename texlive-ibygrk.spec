@@ -6,7 +6,7 @@
 # catalog-version 4.5
 Name:		texlive-ibygrk
 Version:	4.5
-Release:	10
+Release:	11
 Summary:	Fonts and macros to typeset ancient Greek
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/greek/ibygrk
