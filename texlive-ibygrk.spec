@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /fonts/greek/ibygrk
-# catalog-date 2007-07-29 11:26:52 +0200
-# catalog-license gpl
-# catalog-version 4.5
 Name:		texlive-ibygrk
-Version:	4.5
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Fonts and macros to typeset ancient Greek
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/greek/ibygrk
 License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ibygrk.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ibygrk.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ibygrk.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ibygrk.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ macro packages to use it with Plain TeX or LaTeX, but for use
 with Babel, see the ibycus-babel package.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -103,24 +97,10 @@ with Babel, see the ibycus-babel package.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 4.5-2
-+ Revision: 752683
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 4.5-1
-+ Revision: 718691
-- texlive-ibygrk
-- texlive-ibygrk
-- texlive-ibygrk
-- texlive-ibygrk
-
