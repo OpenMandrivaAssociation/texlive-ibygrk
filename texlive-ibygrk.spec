@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Fonts and macros to typeset ancient Greek
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/greek/ibygrk
+URL:		https://www.ctan.org/tex-archive/fonts/greek/ibygrk
 License:	GPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ibygrk.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ibygrk.doc.r%{version}.tar.xz
